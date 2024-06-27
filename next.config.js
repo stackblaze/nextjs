@@ -1,7 +1,14 @@
+const nextBuildId = require('next-build-id');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    distDir: 'build',
-    output: 'export'
+  distDir: 'build',
+  output: 'export',
+  env: {
+    NEXT_PUBLIC_BUILD_ID: nextBuildId.sync({
+     dir: __dirname,
+     describe: true
+   })
+ },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
